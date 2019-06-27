@@ -5,6 +5,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour {
 
@@ -29,6 +30,12 @@ public class UIController : MonoBehaviour {
 		if (this.isGameOver == false) {
 			this.len += this.speed;//走行距離
 			this.runLengthText.GetComponent<Text> ().text = "Distance: " + len.ToString ("F2") + "m";
+		}
+
+		if (this.isGameOver == true) {
+			if (Input.GetMouseButtonDown (0)) {
+				SceneManager.LoadScene ("GameScene");
+			}
 		}
 	}
 	public void GameOver(){
