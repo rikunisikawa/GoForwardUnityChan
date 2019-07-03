@@ -26,6 +26,8 @@ public class UnityChanController : MonoBehaviour {
 		bool isGround = (transform.position.y > this.groundLevel) ? false : true; //isGround変数 = 着地していなかったらfalse,そうでなかったらtrue//1
 		this.animator.SetBool ("isGround", isGround);//animatorクラスの中のSetBool関数（//1
 
+		GetComponent<AudioSource> ().volume = (isGround) ? 1 : 0;//AudioSourceコンポーネント内でのボリューム変数　＝　もし地面についていれば、大きさ1,そうでなければ0
+
 		if (Input.GetMouseButtonDown (0) && isGround){//もし（クリック　& 着地状態）なら　:isGround=true 0=左クリック:3
 				this.rigid2D.velocity = new Vector2 (0, this.jumpVelocity);//newはクラスを新しく作る（x,y):3
 
@@ -48,4 +50,4 @@ public class UnityChanController : MonoBehaviour {
 //SetBoolは真偽値を代入する?」
 
 // Rigidbody2Dクラスの「velocity」変数は、オブジェクトの線形速度です。
-//キューブが落ちる??
+//AudioSourceクラスの「volume」変数は、音量を表しています。
