@@ -5,7 +5,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;//
 
 public class UIController : MonoBehaviour {
 
@@ -33,8 +33,8 @@ public class UIController : MonoBehaviour {
 		}
 
 		if (this.isGameOver == true) {
-			if (Input.GetMouseButtonDown (0)) {
-				SceneManager.LoadScene ("GameScene");
+			if (Input.GetMouseButtonDown (0)) {//ゲームオーバーになってからもしクリックボタンが押されたら、
+				SceneManager.LoadScene ("GameScene");//ゲームシーンを読み込む
 			}
 		}
 	}
@@ -48,3 +48,4 @@ public class UIController : MonoBehaviour {
 
 //「ToString()」は数値を文字列に変換します。また、引数には文字列に変換する際の書式を指定することができます。
 //浮動小数点の値を文字列に変換しています。また、引数を"F2"とすることで、小数部を2桁まで表示するように書式指定しています。
+//SceneManagerクラスのLoadScene関数を使うとシーンを読み込むことができます。引数には読み込むシーン名を渡します。

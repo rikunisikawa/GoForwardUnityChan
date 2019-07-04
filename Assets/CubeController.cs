@@ -7,7 +7,7 @@ public class CubeController : MonoBehaviour {
 	private float speed = -0.2f;//スピードを勝手に定義
 
 	private float deadLine = -10;//消滅位置x座標を勝手に定義
-	private bool Sound = false;
+//	private bool Sound = false;
 
 	// Use this for initialization
 	void Start () {
@@ -18,13 +18,15 @@ public class CubeController : MonoBehaviour {
 		if (transform.position.x < this.deadLine) {
 			Destroy (gameObject);
 		}
-		if (this.Sound) {
-			GetComponent<AudioSource> ().volume = 1;
-		}
+//		if (this.Sound) {
+//			GetComponent<AudioSource> ().volume = 1;
+
 	}
-	void OnTrigerEnter (Collision other){
+
+	void OnCollisionEnter2D (Collision2D other){
 		if (other.gameObject.tag == "CubeTag" || other.gameObject.tag == "groundTag"){
-			this.Sound = true;
+			GetComponent<AudioSource> ().Play ();
+//		this.Sound = true;
 		}
 	}
 }

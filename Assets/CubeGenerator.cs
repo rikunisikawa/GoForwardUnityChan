@@ -24,22 +24,20 @@ public class CubeGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		this.delta += Time.deltaTime;//
-		Debug.Log(delta);
 
 		if (this.delta > this.span) {//秒として比較
 			this.delta = 0;
 
 			//こっから
-			int n = Random.Range (1, maxBlockNum + 1);//数の数えかた? 生成するキューブの数を0~4?? nどっから来た?
-
-
+			int n = Random.Range (1, maxBlockNum + 1);//数の数えかた? 生成するキューブの数を1~4
+			//n 
 			for (int i = 0; i < n; i++) {  //i<nなら(生成するcubeが0個以上なら??）繰り返す →1個以上... →2個以上...
 				//nとiの関係性は??
 				GameObject go = Instantiate (CubePrefab) as GameObject;  //GameObjectクラスのgo変数はCubePreをGameobjectとして生成
-				go.transform.position = new Vector2 (this.genPosX, this.offsetY + i * this.spaceY);//生成位置　（定義済み, ?  offsetY = もともとの生成位置？)
-			}//複数のキューブが一度ではなく段階的にトン・トン・トンと落ちてくるように、キューブを生成する位置は縦方向にspaceY変数のぶんだけスペースを空けて生成しています。 
+				go.transform.position = new Vector2 (this.genPosX, this.offsetY + i * this.spaceY);//生成位置　（定義済み, ?  offsetY = 調整)
+			}//キューブを生成する位置は縦方向にspaceY変数のぶんだけスペースを空けて生成しています。 
 			this.span = this.offsetX + this.spaceX * n;
-			//感覚 = オフセット値　+ スペース変数 * キューブの数
+			//間隔= オフセット値　+ スペース変数 * キューブの数
 		}
 	}
 }
